@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ConsumingWCFServiceInWPFApp.proxy {
+namespace ConsumingWCFServiceInWPFApp.DecryptService {
     using System.Runtime.Serialization;
     using System;
     
@@ -203,49 +203,49 @@ namespace ConsumingWCFServiceInWPFApp.proxy {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="proxy.IAuth")]
-    public interface IAuth {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DecryptService.IDecrypt")]
+    public interface IDecrypt {
         
-        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IAuth/Login", ReplyAction="http://tempuri.org/IAuth/LoginResponse")]
-        ConsumingWCFServiceInWPFApp.proxy.STC_MSG Login(ConsumingWCFServiceInWPFApp.proxy.STC_MSG msg);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDecrypt/DecryptFiles", ReplyAction="http://tempuri.org/IDecrypt/DecryptFilesResponse")]
+        ConsumingWCFServiceInWPFApp.DecryptService.STC_MSG DecryptFiles(ConsumingWCFServiceInWPFApp.DecryptService.STC_MSG msg);
         
-        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="http://tempuri.org/IAuth/Login", ReplyAction="http://tempuri.org/IAuth/LoginResponse")]
-        System.Threading.Tasks.Task<ConsumingWCFServiceInWPFApp.proxy.STC_MSG> LoginAsync(ConsumingWCFServiceInWPFApp.proxy.STC_MSG msg);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDecrypt/DecryptFiles", ReplyAction="http://tempuri.org/IDecrypt/DecryptFilesResponse")]
+        System.Threading.Tasks.Task<ConsumingWCFServiceInWPFApp.DecryptService.STC_MSG> DecryptFilesAsync(ConsumingWCFServiceInWPFApp.DecryptService.STC_MSG msg);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAuthChannel : ConsumingWCFServiceInWPFApp.proxy.IAuth, System.ServiceModel.IClientChannel {
+    public interface IDecryptChannel : ConsumingWCFServiceInWPFApp.DecryptService.IDecrypt, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AuthClient : System.ServiceModel.ClientBase<ConsumingWCFServiceInWPFApp.proxy.IAuth>, ConsumingWCFServiceInWPFApp.proxy.IAuth {
+    public partial class DecryptClient : System.ServiceModel.ClientBase<ConsumingWCFServiceInWPFApp.DecryptService.IDecrypt>, ConsumingWCFServiceInWPFApp.DecryptService.IDecrypt {
         
-        public AuthClient() {
+        public DecryptClient() {
         }
         
-        public AuthClient(string endpointConfigurationName) : 
+        public DecryptClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public AuthClient(string endpointConfigurationName, string remoteAddress) : 
+        public DecryptClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AuthClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public DecryptClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AuthClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public DecryptClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public ConsumingWCFServiceInWPFApp.proxy.STC_MSG Login(ConsumingWCFServiceInWPFApp.proxy.STC_MSG msg) {
-            return base.Channel.Login(msg);
+        public ConsumingWCFServiceInWPFApp.DecryptService.STC_MSG DecryptFiles(ConsumingWCFServiceInWPFApp.DecryptService.STC_MSG msg) {
+            return base.Channel.DecryptFiles(msg);
         }
         
-        public System.Threading.Tasks.Task<ConsumingWCFServiceInWPFApp.proxy.STC_MSG> LoginAsync(ConsumingWCFServiceInWPFApp.proxy.STC_MSG msg) {
-            return base.Channel.LoginAsync(msg);
+        public System.Threading.Tasks.Task<ConsumingWCFServiceInWPFApp.DecryptService.STC_MSG> DecryptFilesAsync(ConsumingWCFServiceInWPFApp.DecryptService.STC_MSG msg) {
+            return base.Channel.DecryptFilesAsync(msg);
         }
     }
 }

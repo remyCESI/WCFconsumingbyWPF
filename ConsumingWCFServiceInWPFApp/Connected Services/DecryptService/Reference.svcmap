@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="04c47c0a-c777-4fce-80bb-311e8468eb68" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/Middleware/Decrypt" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Decrypt.xsd" MetadataType="Schema" ID="bd25c02b-51b1-4f97-b1bc-890d0b6a2af2" SourceId="1" SourceUrl="http://localhost:8000/Middleware/Decrypt?xsd=xsd1" />
+    <MetadataFile FileName="Decrypt1.xsd" MetadataType="Schema" ID="c3333897-e23d-4e27-981a-2f6d7b5fd8db" SourceId="1" SourceUrl="http://localhost:8000/Middleware/Decrypt?xsd=xsd0" />
+    <MetadataFile FileName="Decrypt.disco" MetadataType="Disco" ID="42262ea4-fde2-48c7-9d01-3e7b48b926e4" SourceId="1" SourceUrl="http://localhost:8000/Middleware/Decrypt?disco" />
+    <MetadataFile FileName="Decrypt.wsdl" MetadataType="Wsdl" ID="d2266f53-ec8d-4649-a81c-3279eff8c6d1" SourceId="1" SourceUrl="http://localhost:8000/Middleware/Decrypt?wsdl" />
+    <MetadataFile FileName="Decrypt2.xsd" MetadataType="Schema" ID="24e9b8a3-902a-49a6-a0ea-13988d8a411a" SourceId="1" SourceUrl="http://localhost:8000/Middleware/Decrypt?xsd=xsd3" />
+    <MetadataFile FileName="Decrypt3.xsd" MetadataType="Schema" ID="6928361a-d618-4acd-80bd-e26bfe97253f" SourceId="1" SourceUrl="http://localhost:8000/Middleware/Decrypt?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

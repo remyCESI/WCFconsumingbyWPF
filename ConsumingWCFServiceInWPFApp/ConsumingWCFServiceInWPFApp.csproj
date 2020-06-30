@@ -65,7 +65,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Connected Services\proxy\Reference.cs">
+    <Compile Include="Connected Services\AuthService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\DecryptService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -93,21 +98,37 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\proxy\Auth.wsdl" />
-    <None Include="Connected Services\proxy\Auth.xsd">
+    <None Include="Connected Services\AuthService\Auth.wsdl" />
+    <None Include="Connected Services\AuthService\Auth.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\proxy\Auth1.xsd">
+    <None Include="Connected Services\AuthService\Auth1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\proxy\Auth2.xsd">
+    <None Include="Connected Services\AuthService\Auth2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\proxy\Auth3.xsd">
+    <None Include="Connected Services\AuthService\Auth3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\proxy\ConsumingWCFServiceInWPFApp.proxy.STC_MSG.datasource">
+    <None Include="Connected Services\AuthService\ConsumingWCFServiceInWPFApp.AuthService.STC_MSG.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DecryptService\ConsumingWCFServiceInWPFApp.DecryptService.STC_MSG.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DecryptService\Decrypt.wsdl" />
+    <None Include="Connected Services\DecryptService\Decrypt.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DecryptService\Decrypt1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DecryptService\Decrypt2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DecryptService\Decrypt3.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -121,16 +142,35 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\proxy\" />
+    <WCFMetadataStorage Include="Connected Services\AuthService\" />
+    <WCFMetadataStorage Include="Connected Services\DecryptService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\proxy\configuration91.svcinfo" />
+    <None Include="Connected Services\DecryptService\Decrypt.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\proxy\configuration.svcinfo" />
+    <None Include="Connected Services\DecryptService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\proxy\Reference.svcmap">
+    <None Include="Connected Services\DecryptService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DecryptService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthService\Auth.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
