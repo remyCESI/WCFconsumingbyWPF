@@ -31,14 +31,11 @@ namespace ConsumingWCFServiceInWPFApp
             //instance of List object cfile type
             List<cFile> lfile = new List<cFile>();
 
-
-
             if (openFileDialog.ShowDialog() == true)
             {
                 //that means for each file upload do something 
                 foreach (string filename in openFileDialog.FileNames)
                 {
-
                     //we put the filename in a list in order to remind the user about his push
                     lbFiles.Items.Add(Path.GetFileName(filename));
 
@@ -47,15 +44,11 @@ namespace ConsumingWCFServiceInWPFApp
 
                     //add in lfile some information like name and contains in order to send to middleware later by json
                     lfile.Add(new cFile() { nom = Path.GetFileName(filename), contenu = File.ReadAllText(filename) });
-
-
                 }
 
                 //we serialise en json the list that contains all information about the push with one or several files 
                 string json = JsonConvert.SerializeObject(lfile);
-
             }
-
         }
     }
 }

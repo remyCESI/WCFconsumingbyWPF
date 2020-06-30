@@ -1,10 +1,7 @@
 ﻿using ConsumingWCFServiceInWPFApp.AuthService;
 using ConsumingWCFServiceInWPFApp.DecryptService;
 using System;
-
 using System.Windows;
-
-
 namespace ConsumingWCFServiceInWPFApp
 {
     /// <summary>
@@ -25,7 +22,6 @@ namespace ConsumingWCFServiceInWPFApp
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
         {
-
             string vlogin = txtLogin.Text;
             string vpwd = txtPwd.Text;
 
