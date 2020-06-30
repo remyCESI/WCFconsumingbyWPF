@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="360f30d5-aefc-49da-aa27-1b8fff1a090f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/Middleware/Auth?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Auth.xsd" MetadataType="Schema" ID="acc03aec-af18-4813-989b-e9a237e5ad36" SourceId="1" SourceUrl="http://localhost:8000/Middleware/Auth?xsd=xsd1" />
+    <MetadataFile FileName="Auth1.xsd" MetadataType="Schema" ID="3d9072d8-a85a-4dc1-974c-2d4798d11ec2" SourceId="1" SourceUrl="http://localhost:8000/Middleware/Auth?xsd=xsd0" />
+    <MetadataFile FileName="Auth2.xsd" MetadataType="Schema" ID="6fae65fd-162a-4f29-8fc4-77b8c685d568" SourceId="1" SourceUrl="http://localhost:8000/Middleware/Auth?xsd=xsd3" />
+    <MetadataFile FileName="Auth3.xsd" MetadataType="Schema" ID="6f574a99-8658-4720-b868-ecaa1c19c8d2" SourceId="1" SourceUrl="http://localhost:8000/Middleware/Auth?xsd=xsd2" />
+    <MetadataFile FileName="Auth.wsdl" MetadataType="Wsdl" ID="7876dce3-885a-49da-bbd0-350fc43be038" SourceId="1" SourceUrl="http://localhost:8000/Middleware/Auth?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

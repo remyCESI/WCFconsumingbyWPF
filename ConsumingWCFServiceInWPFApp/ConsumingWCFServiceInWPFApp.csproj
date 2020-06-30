@@ -73,6 +73,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="cFile.cs" />
+    <Compile Include="Connected Services\AuthProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\DecryptProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Dechiffrement.xaml.cs">
       <DependentUpon>Dechiffrement.xaml</DependentUpon>
     </Compile>
@@ -99,6 +109,38 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\AuthProxy\Auth.wsdl" />
+    <None Include="Connected Services\AuthProxy\Auth.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthProxy\Auth1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthProxy\Auth2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthProxy\Auth3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthProxy\ConsumingWCFServiceInWPFApp.AuthProxy.STC_MSG1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DecryptProxy\ConsumingWCFServiceInWPFApp.DecryptProxy.STC_MSG.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DecryptProxy\Decrypt.wsdl" />
+    <None Include="Connected Services\DecryptProxy\Decrypt.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DecryptProxy\Decrypt1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DecryptProxy\Decrypt2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DecryptProxy\Decrypt3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -110,6 +152,37 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AuthProxy\" />
+    <WCFMetadataStorage Include="Connected Services\DecryptProxy\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthProxy\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthProxy\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AuthProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DecryptProxy\Decrypt.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DecryptProxy\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DecryptProxy\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DecryptProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,15 +2,15 @@
 {
     public class cFile
     {
-        public string nom { get; set; }
-        public string contenu { get; set; }
+        public string name { get; set; }
+        public string text { get; set; }
 
         public cFile() { }
 
-        public cFile(string nom, string contenu)
+        public cFile(string name, string text)
         {
-            this.nom = nom;
-            this.contenu = contenu;
+            this.name = name;
+            this.text = text;
         }
     }
 }

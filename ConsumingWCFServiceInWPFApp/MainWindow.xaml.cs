@@ -1,6 +1,7 @@
-﻿using ConsumingWCFServiceInWPFApp.AuthService;
-using ConsumingWCFServiceInWPFApp.DecryptService;
+﻿using ConsumingWCFServiceInWPFApp.AuthProxy;
+using ConsumingWCFServiceInWPFApp.DecryptProxy;
 using System;
+using System.Collections.Generic;
 using System.Windows;
 namespace ConsumingWCFServiceInWPFApp
 {
@@ -9,16 +10,18 @@ namespace ConsumingWCFServiceInWPFApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private AuthService.STC_MSG msg;
+        private AuthProxy.STC_MSG msg;
         private AuthClient authClient;
         private DecryptClient decryptClient;
 
         public MainWindow()
         {
             InitializeComponent();
-            this.msg = new AuthService.STC_MSG();
+            this.msg = new AuthProxy.STC_MSG();
             this.authClient = new AuthClient("authTcp");
-        }
+			this.decryptClient = new DecryptClient("decryptTcp");
+
+		}
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
         {
@@ -38,8 +41,6 @@ namespace ConsumingWCFServiceInWPFApp
 
                     Dechiffrement pdechiffrement = new Dechiffrement();
                     pdechiffrement.Show();
-
-                    M_Decrypter(this.msg);
                 }
                 else
                 {
@@ -52,7 +53,7 @@ namespace ConsumingWCFServiceInWPFApp
             }
         }
 
-        private void M_auhentifier(AuthService.STC_MSG msg)
+        private void M_auhentifier(AuthProxy.STC_MSG msg)
         {
             this.msg = msg;
             this.msg.op_name = "authentifier";
@@ -64,22 +65,30 @@ namespace ConsumingWCFServiceInWPFApp
             this.msg = this.authClient.Login(this.msg);
         }
 
-        private void M_Decrypter(AuthService.STC_MSG msg)
+        private void M_Decrypter(AuthProxy.STC_MSG msg)
         {
-            DecryptService.STC_MSG msgData = new DecryptService.STC_MSG
-            {
-                op_name = "authentifier",
+			DecryptProxy.STC_MSG msgData = new DecryptProxy.STC_MSG
+			{
+                op_name = "decrypter",
                 app_name = "Middleware",
                 app_token = "apptoken",
                 app_version = "2.0",
                 op_info = "Demande de service de l'application 1 de version 2.0"
             };
 
-            this.msg = new AuthService.STC_MSG()
+			msgData = this.decryptClient.DecryptFiles(msgData);
+
+            this.msg = new AuthProxy.STC_MSG()
             {
                 // To complete with all the informations
                 data = msgData.data
             };
         }
+
+		public void GetDataFromFiles(object[] files)
+		{
+			this.msg.data = files;
+			M_Decrypter(this.msg);
+		}
     }
 }

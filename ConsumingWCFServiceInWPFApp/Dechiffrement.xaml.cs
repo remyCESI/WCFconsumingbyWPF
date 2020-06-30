@@ -1,5 +1,4 @@
 ﻿using Microsoft.Win32;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -43,11 +42,17 @@ namespace ConsumingWCFServiceInWPFApp
                     Textdisplay.Text = Textdisplay.Text + Environment.NewLine + File.ReadAllText(filename);
 
                     //add in lfile some information like name and contains in order to send to middleware later by json
-                    lfile.Add(new cFile() { nom = Path.GetFileName(filename), contenu = File.ReadAllText(filename) });
+                    lfile.Add(new cFile() { name = Path.GetFileName(filename), text = File.ReadAllText(filename) });
                 }
 
-                //we serialise en json the list that contains all information about the push with one or several files 
-                string json = JsonConvert.SerializeObject(lfile);
+				object[] files = new object[lfile.Count];
+
+				for (int index=0; index < lfile.Count; index++)
+				{
+					files[index] = lfile[index];
+				}
+
+				new MainWindow().GetDataFromFiles(files);
             }
         }
     }
