@@ -1,0 +1,15 @@
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\bin\Debug\ConsumingWCFServiceInWPFApp.exe.config
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\bin\Debug\ConsumingWCFServiceInWPFApp.exe
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\bin\Debug\ConsumingWCFServiceInWPFApp.pdb
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\obj\Debug\ConsumingWCFServiceInWPFApp.csprojAssemblyReference.cache
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\obj\Debug\MainWindow.g.cs
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\obj\Debug\App.g.cs
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\obj\Debug\ConsumingWCFServiceInWPFApp_MarkupCompile.cache
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\obj\Debug\ConsumingWCFServiceInWPFApp_MarkupCompile.lref
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\obj\Debug\MainWindow.baml
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\obj\Debug\ConsumingWCFServiceInWPFApp.g.resources
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\obj\Debug\ConsumingWCFServiceInWPFApp.Properties.Resources.resources
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\obj\Debug\ConsumingWCFServiceInWPFApp.csproj.GenerateResource.cache
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\obj\Debug\ConsumingWCFServiceInWPFApp.csproj.CoreCompileInputs.cache
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\obj\Debug\ConsumingWCFServiceInWPFApp.exe
+C:\Users\vanca\source\repos\ConsumingWCFServiceInWPFApp\ConsumingWCFServiceInWPFApp\obj\Debug\ConsumingWCFServiceInWPFApp.pdb
