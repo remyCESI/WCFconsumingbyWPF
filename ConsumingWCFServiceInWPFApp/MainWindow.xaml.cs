@@ -16,12 +16,12 @@ namespace ConsumingWCFServiceInWPFApp
         private AuthClient authClient;
         private DecryptClient decryptClient;
 
-		public MainWindow()
+        public MainWindow()
         {
             InitializeComponent();
             this.msg = new AuthService.STC_MSG();
             this.authClient = new AuthClient("authTcp");
-		}
+        }
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
         {
@@ -40,7 +40,10 @@ namespace ConsumingWCFServiceInWPFApp
                 {
                     MessageBox.Show("Vous êtes connectés");
 
-					M_Decrypter(this.msg);
+                    Dechiffrement pdechiffrement = new Dechiffrement();
+                    pdechiffrement.Show();
+
+                    M_Decrypter(this.msg);
                 }
                 else
                 {
@@ -51,36 +54,36 @@ namespace ConsumingWCFServiceInWPFApp
             {
                 MessageBox.Show("Veuillez renseigner tous les champs");
             }
-		}
+        }
 
-		private void M_auhentifier(AuthService.STC_MSG msg)
-		{
-			this.msg = msg;
-			this.msg.op_name = "authentifier";
-			this.msg.app_name = "Middleware";
-			this.msg.app_token = "apptoken";
-			this.msg.app_version = "2.0";
-			this.msg.op_info = "Demande de service de l'application 1 de version 2.0";
+        private void M_auhentifier(AuthService.STC_MSG msg)
+        {
+            this.msg = msg;
+            this.msg.op_name = "authentifier";
+            this.msg.app_name = "Middleware";
+            this.msg.app_token = "apptoken";
+            this.msg.app_version = "2.0";
+            this.msg.op_info = "Demande de service de l'application 1 de version 2.0";
 
-			this.msg = this.authClient.Login(this.msg);
-		}
+            this.msg = this.authClient.Login(this.msg);
+        }
 
-		private void M_Decrypter(AuthService.STC_MSG msg)
-		{
-			DecryptService.STC_MSG msgData = new DecryptService.STC_MSG
-			{
-				op_name = "authentifier",
-				app_name = "Middleware",
-				app_token = "apptoken",
-				app_version = "2.0",
-				op_info = "Demande de service de l'application 1 de version 2.0"
-			};
+        private void M_Decrypter(AuthService.STC_MSG msg)
+        {
+            DecryptService.STC_MSG msgData = new DecryptService.STC_MSG
+            {
+                op_name = "authentifier",
+                app_name = "Middleware",
+                app_token = "apptoken",
+                app_version = "2.0",
+                op_info = "Demande de service de l'application 1 de version 2.0"
+            };
 
-			this.msg = new AuthService.STC_MSG()
-			{
-				// To complete with all the informations
-				data = msgData.data
-			};
-		}
-	}
+            this.msg = new AuthService.STC_MSG()
+            {
+                // To complete with all the informations
+                data = msgData.data
+            };
+        }
+    }
 }
