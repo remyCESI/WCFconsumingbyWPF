@@ -70,7 +70,7 @@ namespace ConsumingWCFServiceInWPFApp
             this.msg = this.authClient.Login(this.msg);
         }
 
-        private void M_Decrypter(AuthProxy.STC_MSG msg)
+        private void M_Decrypter(AuthProxy.STC_MSG msg, object[] file)
         {
             DecryptProxy.STC_MSG msgData = new DecryptProxy.STC_MSG
             {
@@ -79,24 +79,24 @@ namespace ConsumingWCFServiceInWPFApp
                 app_token = "apptoken",
                 app_version = "2.0",
                 op_info = "Demande de service de l'application 1 de version 2.0",
-                data = msg.data
-			};
+                data = file
+            };
 
             msgData = this.decryptClient.DecryptFiles(msgData);
-
-			MessageBox.Show("Response = " + msgData.data[0]);
-
-			this.msg = new AuthProxy.STC_MSG()
-            {
-                // To complete with all the informations
-                data = msgData.data
-            };
         }
 
-        public void GetDataFromFiles(object[] files)
+        public void GetDataFromFiles(List<ClassFile> files)
         {
-            this.msg.data = files;
-            M_Decrypter(this.msg);
+            files.ForEach((ClassFile f) =>
+            {
+                object[] filesSent = new object[2];
+                filesSent[0] = f.name;
+                filesSent[1] = f.text;
+
+                M_Decrypter(this.msg, filesSent);
+            });
+
+            MessageBox.Show("Sent !");
         }
     }
 }

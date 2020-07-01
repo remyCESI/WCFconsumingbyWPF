@@ -51,6 +51,7 @@ namespace ConsumingWCFServiceInWPFApp
                     });
                 }
 
+				/*
                 object[] files = new object[lfile.Count];
 
                 var index = 0;
@@ -59,8 +60,9 @@ namespace ConsumingWCFServiceInWPFApp
                     files[index] = JsonConvert.SerializeObject(f);
                     index++;
                 }
+				*/
 
-                new MainWindow().GetDataFromFiles(files);
+                new MainWindow().GetDataFromFiles(lfile);
             }
         }
     }
