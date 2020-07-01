@@ -17,11 +17,11 @@ namespace ConsumingWCFServiceInWPFApp
         public MainWindow()
         {
             InitializeComponent();
+
             this.msg = new AuthProxy.STC_MSG();
             this.authClient = new AuthClient("authTcp");
-			this.decryptClient = new DecryptClient("decryptTcp");
-
-		}
+            this.decryptClient = new DecryptClient("decryptTcp");
+        }
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
         {
@@ -39,8 +39,13 @@ namespace ConsumingWCFServiceInWPFApp
                 {
                     MessageBox.Show("Vous êtes connectés");
 
-                    Dechiffrement pdechiffrement = new Dechiffrement();
+                    Dechiffrement pdechiffrement = new Dechiffrement
+                    {
+                        WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                    };
+
                     pdechiffrement.Show();
+                    Hide();
                 }
                 else
                 {
@@ -67,28 +72,31 @@ namespace ConsumingWCFServiceInWPFApp
 
         private void M_Decrypter(AuthProxy.STC_MSG msg)
         {
-			DecryptProxy.STC_MSG msgData = new DecryptProxy.STC_MSG
-			{
+            DecryptProxy.STC_MSG msgData = new DecryptProxy.STC_MSG
+            {
                 op_name = "decrypter",
                 app_name = "Middleware",
                 app_token = "apptoken",
                 app_version = "2.0",
-                op_info = "Demande de service de l'application 1 de version 2.0"
-            };
+                op_info = "Demande de service de l'application 1 de version 2.0",
+                data = msg.data
+			};
 
-			msgData = this.decryptClient.DecryptFiles(msgData);
+            msgData = this.decryptClient.DecryptFiles(msgData);
 
-            this.msg = new AuthProxy.STC_MSG()
+			MessageBox.Show("Response = " + msgData.data[0]);
+
+			this.msg = new AuthProxy.STC_MSG()
             {
                 // To complete with all the informations
                 data = msgData.data
             };
         }
 
-		public void GetDataFromFiles(object[] files)
-		{
-			this.msg.data = files;
-			M_Decrypter(this.msg);
-		}
+        public void GetDataFromFiles(object[] files)
+        {
+            this.msg.data = files;
+            M_Decrypter(this.msg);
+        }
     }
 }

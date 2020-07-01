@@ -9,7 +9,7 @@
     <Grid>
         <Label Content="Tableau de bord" Foreground="White" FontSize="24" HorizontalAlignment="Center"/>
 
-        <Button Name="btnOpenFile" Click="btnOpenFiles_Click" Margin="10,101,400,294">Selectioner les fichiers</Button>
+        <Button Name="btnOpenFile" Click="btnOpenFiles_Click" Margin="10,60,400,300">Selectioner les fichiers</Button>
 
         <ListBox Background="#383838"  HorizontalAlignment="Left"  Name="lbFiles" Width="390" Margin="10,145,0,37" />
         <TextBox HorizontalAlignment="Left" Margin="425,101,0,0"  Name="Textdisplay" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="296"/>

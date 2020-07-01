@@ -6,10 +6,10 @@ using System.Windows;
 
 namespace ConsumingWCFServiceInWPFApp
 {
-    /// <summary>
-    /// Logique d'interaction pour Dechiffrement.xaml
-    /// </summary>
-    public partial class Dechiffrement : Window
+	/// <summary>
+	/// Logique d'interaction pour Dechiffrement.xaml
+	/// </summary>
+	public partial class Dechiffrement : Window
     {
         public Dechiffrement()
         {
@@ -18,17 +18,18 @@ namespace ConsumingWCFServiceInWPFApp
 
         private void btnOpenFiles_Click(object sender, RoutedEventArgs e)
         {
-
             //new Instance of openfiledialog to handle file throught graphic interface 
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = true;
-            //you can only upload a file that is text
-            openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-            //we start the dialog box in document folder
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Multiselect = true,
+                //you can only upload a file that is text
+                Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*",
+                //we start the dialog box in document folder
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            };
 
-            //instance of List object cfile type
-            List<cFile> lfile = new List<cFile>();
+            //instance of List object ClassFile type
+            List<ClassFile> lfile = new List<ClassFile>();
 
             if (openFileDialog.ShowDialog() == true)
             {
@@ -41,19 +42,34 @@ namespace ConsumingWCFServiceInWPFApp
                     //optional
                     Textdisplay.Text = Textdisplay.Text + Environment.NewLine + File.ReadAllText(filename);
 
-                    //add in lfile some information like name and contains in order to send to middleware later by json
-                    lfile.Add(new cFile() { name = Path.GetFileName(filename), text = File.ReadAllText(filename) });
-                }
+					//add in lfile some information like name and contains in order to send to middleware later by json
+					lfile.Add(new ClassFile()
+					{
+						name = Path.GetFileName(filename),
+						text = File.ReadAllText(filename)
+					});
+				}
 
 				object[] files = new object[lfile.Count];
 
-				for (int index=0; index < lfile.Count; index++)
+				var index = 0;
+				foreach(ClassFile f in lfile)
 				{
-					files[index] = lfile[index];
+					files[index] = f.name;
+					//files[index] = new Newtonsoft.Json.JsonConvert.SerializeObject(new { name = f.name, text = f.text });
+					index++;
 				}
 
 				new MainWindow().GetDataFromFiles(files);
-            }
-        }
-    }
+			}
+		}
+	}
+
+	public class ClassFile
+	{
+		public string name;
+		public string text;
+
+		public ClassFile() { }
+	}
 }
