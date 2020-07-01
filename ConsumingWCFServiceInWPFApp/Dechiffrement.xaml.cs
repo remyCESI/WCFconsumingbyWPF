@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,10 +7,10 @@ using System.Windows;
 
 namespace ConsumingWCFServiceInWPFApp
 {
-	/// <summary>
-	/// Logique d'interaction pour Dechiffrement.xaml
-	/// </summary>
-	public partial class Dechiffrement : Window
+    /// <summary>
+    /// Logique d'interaction pour Dechiffrement.xaml
+    /// </summary>
+    public partial class Dechiffrement : Window
     {
         public Dechiffrement()
         {
@@ -42,34 +43,33 @@ namespace ConsumingWCFServiceInWPFApp
                     //optional
                     Textdisplay.Text = Textdisplay.Text + Environment.NewLine + File.ReadAllText(filename);
 
-					//add in lfile some information like name and contains in order to send to middleware later by json
-					lfile.Add(new ClassFile()
-					{
-						name = Path.GetFileName(filename),
-						text = File.ReadAllText(filename)
-					});
-				}
+                    //add in lfile some information like name and contains in order to send to middleware later by json
+                    lfile.Add(new ClassFile()
+                    {
+                        name = Path.GetFileName(filename),
+                        text = File.ReadAllText(filename)
+                    });
+                }
 
-				object[] files = new object[lfile.Count];
+                object[] files = new object[lfile.Count];
 
-				var index = 0;
-				foreach(ClassFile f in lfile)
-				{
-					files[index] = f.name;
-					//files[index] = new Newtonsoft.Json.JsonConvert.SerializeObject(new { name = f.name, text = f.text });
-					index++;
-				}
+                var index = 0;
+                foreach (ClassFile f in lfile)
+                {
+                    files[index] = JsonConvert.SerializeObject(f);
+                    index++;
+                }
 
-				new MainWindow().GetDataFromFiles(files);
-			}
-		}
-	}
+                new MainWindow().GetDataFromFiles(files);
+            }
+        }
+    }
 
-	public class ClassFile
-	{
-		public string name;
-		public string text;
+    public class ClassFile
+    {
+        public string name;
+        public string text;
 
-		public ClassFile() { }
-	}
+        public ClassFile() { }
+    }
 }
