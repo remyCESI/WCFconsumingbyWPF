@@ -2,6 +2,7 @@
 using ConsumingWCFServiceInWPFApp.DecryptProxy;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows;
 namespace ConsumingWCFServiceInWPFApp
 {
@@ -12,15 +13,15 @@ namespace ConsumingWCFServiceInWPFApp
     {
         private AuthProxy.STC_MSG msg;
         private AuthClient authClient;
-        private DecryptClient decryptClient;
 
-        public MainWindow()
+		private Dechiffrement pdechiffrement;
+
+		public MainWindow()
         {
             InitializeComponent();
 
             this.msg = new AuthProxy.STC_MSG();
             this.authClient = new AuthClient("authTcp");
-            this.decryptClient = new DecryptClient("decryptTcp");
         }
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
@@ -39,7 +40,7 @@ namespace ConsumingWCFServiceInWPFApp
                 {
                     MessageBox.Show("Vous êtes connectés");
 
-                    Dechiffrement pdechiffrement = new Dechiffrement
+                    this.pdechiffrement = new Dechiffrement
                     {
                         WindowStartupLocation = WindowStartupLocation.CenterScreen,
                     };
@@ -68,35 +69,6 @@ namespace ConsumingWCFServiceInWPFApp
             this.msg.op_info = "Demande de service de l'application 1 de version 2.0";
 
             this.msg = this.authClient.Login(this.msg);
-        }
-
-        private void M_Decrypter(AuthProxy.STC_MSG msg, object[] file)
-        {
-            DecryptProxy.STC_MSG msgData = new DecryptProxy.STC_MSG
-            {
-                op_name = "decrypter",
-                app_name = "Middleware",
-                app_token = "apptoken",
-                app_version = "2.0",
-                op_info = "Demande de service de l'application 1 de version 2.0",
-                data = file
-            };
-
-            msgData = this.decryptClient.DecryptFiles(msgData);
-        }
-
-        public void GetDataFromFiles(List<ClassFile> files)
-        {
-            files.ForEach((ClassFile f) =>
-            {
-                object[] filesSent = new object[2];
-                filesSent[0] = f.name;
-                filesSent[1] = f.text;
-
-                M_Decrypter(this.msg, filesSent);
-            });
-
-            MessageBox.Show("Sent !");
         }
     }
 }
