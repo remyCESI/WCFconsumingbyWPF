@@ -84,6 +84,9 @@ namespace ConsumingWCFServiceInWPFApp
 				data = file
 			};
 
+			DisplayResult(msgData.data[0].ToString());
+			DisplayResult("en cours de traitement...");
+
 			try
 			{
 				msgData = this.decryptClient.DecryptFiles(msgData);
@@ -92,18 +95,22 @@ namespace ConsumingWCFServiceInWPFApp
 			{
 				throw new Exception("Middleware error " + e.ToString());
 			}
-			/*
-			Result r = new Result()
-			{
-				name = msgData.data[0].ToString(),
-				text = msgData.data[1].ToString(),
-				key = msgData.data[2].ToString()
-			};
-			
-			DisplayResult("Filename = " + r.name + Environment.NewLine + "Text = " + r.text + Environment.NewLine + "Key = " + r.key);
-			*/
 
-			DisplayResult(msgData.data[0].ToString());
+			if(msgData.data.Length > 2)
+			{
+				DisplayResult(msgData.data[0].ToString() + ": Traitement terminé !");
+
+				/*
+				Result r = new Result()
+				{
+					name = msgData.data[0].ToString(),
+					text = msgData.data[1].ToString(),
+					key = msgData.data[2].ToString()
+				};
+
+				DisplayResult("Filename = " + r.name + Environment.NewLine + "Text = " + r.text + Environment.NewLine + "Key = " + r.key);
+				*/
+			}
 		}
 
 		public void GetDataFromFiles(List<ClassFile> files)
